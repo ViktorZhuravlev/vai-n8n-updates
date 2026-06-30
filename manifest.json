@@ -1,0 +1,11 @@
+{
+  "channel": "VAi n8n GitHub updates",
+  "current_version": "v21.0",
+  "current_score": 21000,
+  "workflow_name": "Туры v21.0 FINAL autonomous search polish",
+  "workflow_file": "workflows/Tury_v21_0_FINAL_autonomous_search_polish.json",
+  "workflow_url": "https://raw.githubusercontent.com/ViktorZhuravlev/vai-n8n-updates/main/workflows/Tury_v21_0_FINAL_autonomous_search_polish.json",
+  "workflow_sha256": "3a99892dc36ac548473ae8d412e3946c850758b1aba1c6733f46249eff8c7bcb",
+  "min_updater": "v10.0",
+  "notes": "Initial GitHub channel bootstrap. Public read-only updater pulls this manifest."
+}
