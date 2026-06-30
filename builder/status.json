@@ -1,0 +1,14 @@
+{
+  "builder": "v30",
+  "status": "READY_FOR_CANDIDATE_PATCH",
+  "last_run_at": "2026-06-30T21:06:44.607Z",
+  "safe_mode": true,
+  "current_step": "planning/spec/testcases published",
+  "next_step": "generate candidate workflow patch and run n8n import/execute QA",
+  "files_published": [
+    "builder/tasks/quality_gate_v30_20260630_210644.json",
+    "builder/specs/quality_gate_v30_spec.json",
+    "builder/autotests/quality_gate_v30_cases.json",
+    "builder/status.json"
+  ]
+}
