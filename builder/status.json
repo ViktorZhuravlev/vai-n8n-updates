@@ -1,12 +1,20 @@
 {
-  "builder": "v32",
-  "status": "CANDIDATE_QA_PASS",
-  "last_run_at": "2026-06-30T23:31:46.173Z",
+  "builder": "v33",
+  "status": "PROMOTION_GATE_PASS",
+  "last_run_at": "2026-06-30T23:33:53.384Z",
   "production_touched": false,
-  "candidate_path": "builder/candidates/Tury_v31_quality_gate_candidate_20260630_232923.json",
-  "qa_report_path": "builder/reports/builder_v32_qa_report_20260630_232927.md",
+  "source_candidate_path": "builder/candidates/Tury_v31_quality_gate_candidate_20260630_232923.json",
+  "promoted_path": "builder/promoted/Tury_v33_quality_gate_promoted_20260630_233153.json",
+  "report_path": "builder/reports/builder_v33_promotion_report_20260630_233153.md",
   "n8n_import_pass": true,
   "n8n_execution_pass": true,
-  "quality_gate_json_pass": true,
-  "next_step": "v33 Google Sheets output verification and promotion gate"
+  "quality_gate_field_check_pass": true,
+  "quality_gate_sample": {
+    "score": 1,
+    "risk": "high",
+    "priceConfidence": "suspicious",
+    "status": "Отклонить",
+    "rejectReason": "нет source_url; цена некорректная"
+  },
+  "next_step": "v34 final approval gate / controlled promotion"
 }
