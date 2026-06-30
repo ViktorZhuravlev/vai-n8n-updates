@@ -1,0 +1,38 @@
+{
+  "version": "v30.0",
+  "created_at": "2026-06-30T21:06:44.607Z",
+  "quality_gate_fields": [
+    "status",
+    "score",
+    "risk_level",
+    "reject_reason",
+    "price_confidence",
+    "source_url",
+    "checked_at"
+  ],
+  "scoring": {
+    "base": 10,
+    "penalties": {
+      "unconfirmed_price": -3,
+      "suspicious_price": -5,
+      "anthill_hotel": -4,
+      "noisy_family_hotel": -3,
+      "weak_reviews": -2,
+      "bad_location": -2,
+      "unclear_meal_plan": -1,
+      "date_or_nights_mismatch": -5
+    }
+  },
+  "decisions": {
+    "recommend": "score >= 8 and risk_level low or medium and price not suspicious",
+    "backup": "score >= 6 and not high risk",
+    "reject": "score < 6 or high risk or suspicious price"
+  },
+  "hard_fail_rules": [
+    "Do not claim confirmed price unless price_confidence == confirmed",
+    "High risk hotels cannot be TOP-3",
+    "Missing Sheets quality fields fails QA",
+    "Hidden n8n execution errors fail QA",
+    "GitHub publish only after full PASS"
+  ]
+}
