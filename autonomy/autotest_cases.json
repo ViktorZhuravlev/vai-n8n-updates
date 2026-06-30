@@ -1,0 +1,46 @@
+{
+  "version": "v29.0",
+  "cases": [
+    {
+      "id": "turkey_july_175k_two_adults",
+      "query": "podberi Turkey na July do 175000 na dvoih 4-5 stars ne muraveinik 7 nights",
+      "budget": 175000,
+      "adults": 2,
+      "nights": 7,
+      "must_not_contain": [
+        "v15.0",
+        "v16.0",
+        "v17.0",
+        "v18.0",
+        "v19.0",
+        "v20.0"
+      ],
+      "must_check": [
+        "budget",
+        "nights",
+        "dates",
+        "links",
+        "sheets"
+      ]
+    },
+    {
+      "id": "turkey_august_350k_two_adults",
+      "query": "podberi Turkey na August do 350000 na dvoih 4-5 stars ne muraveinik 7 nights",
+      "budget": 350000,
+      "adults": 2,
+      "nights": 7,
+      "must_not_contain": [
+        "literal_backslash_n",
+        "double_nights",
+        "old_version"
+      ],
+      "must_check": [
+        "budget",
+        "nights",
+        "dates",
+        "links",
+        "sheets"
+      ]
+    }
+  ]
+}

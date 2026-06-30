@@ -1,0 +1,20 @@
+{
+  "version": "v29.0",
+  "mode": "real_qa_node_core",
+  "tasks": [
+    {
+      "id": "tour_agent_real_autonomy",
+      "priority": 100,
+      "goal": "Improve and verify the tour agent workflow through an autonomous QA loop before publishing.",
+      "must_pass": [
+        "workflow_json_valid",
+        "tour_agent_nodes_present",
+        "google_sheets_node_present",
+        "real_node_qa_pass",
+        "n8n_import_pass",
+        "safe_execution_check_pass",
+        "stable_workflow_id_present"
+      ]
+    }
+  ]
+}
