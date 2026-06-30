@@ -1,0 +1,34 @@
+[
+  {
+    "id": "turkey_july_175k",
+    "request": "подбери Турцию на июль до 175000 на двоих 4-5 звезд не муравейник",
+    "expected": [
+      "top_3",
+      "backup_2",
+      "rejected",
+      "score",
+      "risk_level",
+      "price_confidence"
+    ]
+  },
+  {
+    "id": "turkey_august_350k",
+    "request": "подбери Турцию на август до 350000 на двоих 4-5 звезд 7 ночей",
+    "expected": [
+      "score",
+      "risk_level",
+      "checked_at",
+      "price_confidence"
+    ]
+  },
+  {
+    "id": "vietnam_august_300k",
+    "request": "Вьетнам на август до 300000 на двоих спокойный отель",
+    "expected": [
+      "score",
+      "risk_level",
+      "reject_reason",
+      "honest_warning"
+    ]
+  }
+]
