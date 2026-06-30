@@ -1,0 +1,30 @@
+{
+  "release": "v34",
+  "status": "RELEASE_CANDIDATE_READY",
+  "created_at": "2026-06-30T23:35:26.438Z",
+  "production_touched": false,
+  "source_promoted_path": "builder/promoted/Tury_v33_quality_gate_promoted_20260630_233153.json",
+  "release_workflow_path": "builder/releases/Tury_v34_release_candidate_20260630_233402.json",
+  "report_path": "builder/reports/builder_v34_release_report_20260630_233402.md",
+  "qa": {
+    "previous_promotion_gate_pass": true,
+    "static_check_pass": true,
+    "n8n_import_pass": true,
+    "n8n_execution_pass": true,
+    "quality_gate_field_check_pass": true,
+    "quality_gate_sample": {
+      "score": 1,
+      "risk": "high",
+      "priceConfidence": "suspicious",
+      "checkedAt": "2026-06-30T23:34:10.487Z",
+      "status": "Отклонить",
+      "rejectReason": "нет source_url; цена некорректная"
+    }
+  },
+  "safety": {
+    "replace_production": false,
+    "requires_final_manual_approval_step": true,
+    "current_production_backup_known": "D:\\VAI\\3321\\BACKUP_WORKING_20260630_235702.zip"
+  },
+  "next_step": "v35 final controlled production replacement gate"
+}
