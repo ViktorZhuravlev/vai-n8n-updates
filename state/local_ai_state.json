@@ -1,0 +1,6 @@
+{
+    "updated_at":  "2026-06-30T12:59:06Z",
+    "status":  "FAIL",
+    "details":  "The remote server returned an error: (422) Unprocessable Entity.",
+    "model":  "qwen2.5-coder:7b"
+}
