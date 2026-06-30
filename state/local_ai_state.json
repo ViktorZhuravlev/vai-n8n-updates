@@ -1,13 +1,13 @@
 {
-    "installer":  "v17.0",
+    "installer":  "v18.0",
     "status":  "PASS",
-    "last_run_at":  "2026-06-30T16:40:00",
+    "last_run_at":  "2026-06-30T16:42:03",
     "owner":  "ViktorZhuravlev",
     "repo":  "vai-n8n-updates",
     "branch":  "main",
     "model":  "qwen2.5-coder:7b",
     "published_version":  "v22.0",
-    "published_score":  22000,
+    "published_score":  23000,
     "workflow_file":  "workflows/Tury_v22_0_FINAL_local_AI_guarded_autonomy.json",
     "workflow_sha256":  "c03a2d1e8d973cc948a3ee744e8df2473af6344ca240a14e47efe55b417cc750",
     "next_mode":  "scheduled hidden local AI maintainer every 6 hours"
