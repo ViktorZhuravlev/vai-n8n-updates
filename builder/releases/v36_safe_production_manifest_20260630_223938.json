@@ -1,0 +1,30 @@
+{
+  "release": "v36-safe-production",
+  "status": "SAFE_PRODUCTION_REPLACEMENT_PASS",
+  "created_at": "2026-06-30T22:42:56.069Z",
+  "production_path": "workflows/Tury_v29_0_REAL_QA_node_autonomy_loop.json",
+  "production_id": "vaiTuryV29RealQa",
+  "source_release_path": "builder/releases/Tury_v34_release_candidate_20260630_215929.json",
+  "backup_path": "builder/backups/production_before_v36_safe_20260630_223938.json",
+  "candidate_path": "builder/safe_production/Tury_v36_safe_production_candidate_20260630_223938.json",
+  "report_path": "builder/reports/v36_safe_production_report_20260630_223938.md",
+  "manifest_path": "builder/releases/v36_safe_production_manifest_20260630_223938.json",
+  "checks": {
+    "current_production_shape_pass": true,
+    "release_shape_pass": true,
+    "adapted_shape_pass": true,
+    "outer_format_preserved": true,
+    "n8n_import_pass": true,
+    "n8n_execution_pass": true,
+    "quality_gate_runtime_fields_pass": true,
+    "github_production_replace_pass": true
+  },
+  "sample": {
+    "score": 1,
+    "risk": "high",
+    "priceConfidence": "suspicious",
+    "checkedAt": "2026-06-30T22:39:49.771Z",
+    "status": "Отклонить",
+    "rejectReason": "нет source_url; цена некорректная"
+  }
+}
