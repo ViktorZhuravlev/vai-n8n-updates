@@ -1,12 +1,12 @@
 {
   "version": "v29.0",
   "status": "PASS",
-  "published_at": "2026-06-30T15:07:05.925Z",
+  "published_at": "2026-06-30T18:03:19.219Z",
   "workflow_sha256": "cd727a1b58ee471b8368013ebbc035ecf66913a9108c06b081e84f95fd2eecf3",
   "n8n": {
     "ok": true,
     "method": "execute_file",
-    "output": "n8n Task Broker ready on 127.0.0.1, port 5724\nFailed to start Python task runner in internal mode. because Python 3 is missing from this system. Launching a Python runner in internal mode is intended only for debugging and is not recommended for production. Users are encouraged to deploy in external mode. See: https://docs.n8n.io/hosting/configuration/task-runners/#setting-up-external-mode\n[license SDK] Skipping renewal on init: renewOnInit is disabled in config\n[license SDK] Skipping renewal on init: autoRenewEnabled is disabled in config\n[license SDK] Skipping renewal on init: license cert is not initialized\n\"--id\" has to be set!"
+    "output": "n8n Task Broker ready on 127.0.0.1, port 5821\nFailed to start Python task runner in internal mode. because Python 3 is missing from this system. Launching a Python runner in internal mode is intended only for debugging and is not recommended for production. Users are encouraged to deploy in external mode. See: https://docs.n8n.io/hosting/configuration/task-runners/#setting-up-external-mode\n[license SDK] Skipping renewal on init: renewOnInit is disabled in config\n[license SDK] Skipping renewal on init: autoRenewEnabled is disabled in config\n[license SDK] Skipping renewal on init: license cert is not initialized\n\"--id\" has to be set!"
   },
   "iterations": [
     "iteration 1: pass"
