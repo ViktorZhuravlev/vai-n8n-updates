@@ -29,11 +29,12 @@
       "bridged_at": "2026-06-30T17:20:08.787Z"
     }
   ],
-  "updated_at": "2026-06-30T17:20:09.447Z",
+  "updated_at": "2026-06-30T17:34:39.795Z",
   "updated_by": "VAi task bridge v44",
   "last_bridge": {
     "source": "v40",
     "queued_non_test": 1,
     "added": 1
-  }
+  },
+  "bridge": "v47"
 }
