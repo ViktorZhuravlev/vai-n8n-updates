@@ -1,22 +1,22 @@
 {
-  "builder": "v34",
-  "status": "RELEASE_CANDIDATE_READY",
-  "last_run_at": "2026-07-01T00:14:43.907Z",
-  "production_touched": false,
-  "source_promoted_path": "builder/promoted/Tury_v33_quality_gate_promoted_20260701_001131.json",
-  "release_workflow_path": "builder/releases/Tury_v34_release_candidate_20260701_001311.json",
-  "manifest_path": "builder/releases/release_v34_manifest_20260701_001311.json",
-  "report_path": "builder/reports/builder_v34_release_report_20260701_001311.md",
-  "n8n_import_pass": true,
-  "n8n_execution_pass": true,
-  "release_field_check_pass": true,
+  "builder": "v36-safe-production",
+  "status": "SAFE_PRODUCTION_REPLACEMENT_PASS",
+  "last_run_at": "2026-07-01T00:17:37.677Z",
+  "production_touched": true,
+  "production_path": "workflows/Tury_v29_0_REAL_QA_node_autonomy_loop.json",
+  "production_id": "vaiTuryV29RealQa",
+  "source_release_path": "builder/releases/Tury_v34_release_candidate_20260630_215929.json",
+  "backup_path": "builder/backups/production_before_v36_safe_20260701_001454.json",
+  "candidate_path": "builder/safe_production/Tury_v36_safe_production_candidate_20260701_001454.json",
+  "report_path": "builder/reports/v36_safe_production_report_20260701_001454.md",
+  "manifest_path": "builder/releases/v36_safe_production_manifest_20260701_001454.json",
   "quality_gate_sample": {
     "score": 1,
     "risk": "high",
     "priceConfidence": "suspicious",
-    "checkedAt": "2026-07-01T00:13:19.630Z",
+    "checkedAt": "2026-07-01T00:15:05.684Z",
     "status": "Отклонить",
     "rejectReason": "нет source_url; цена некорректная"
   },
-  "next_step": "v35 final controlled production replacement gate"
+  "next_step": "normal v29 autopilot verification"
 }
