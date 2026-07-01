@@ -1,0 +1,44 @@
+{
+    "schema":  "vai-builder-autotests-v41-1",
+    "version":  "v41.1",
+    "created_at":  "2026-07-01T03:43:36",
+    "task":  "improve tour agent: stricter real price, dates, nights and old links checks",
+    "cases":  [
+                  {
+                      "id":  "v41-1-price-confidence-strict",
+                      "input":  "Turkey July up to 175000 for two adults 4-5 stars not ant-farm",
+                      "expected":  [
+                                       "missing source_url is not confirmed",
+                                       "suspicious price is not reliable TOP",
+                                       "price_confidence is confirmed only with evidence"
+                                   ]
+                  },
+                  {
+                      "id":  "v41-1-dates-nights-lock",
+                      "input":  "Turkey August up to 350000 for two adults 7 nights",
+                      "expected":  [
+                                       "month must be August",
+                                       "nights must be 7",
+                                       "date mismatch creates risk"
+                                   ]
+                  },
+                  {
+                      "id":  "v41-1-old-links-reject",
+                      "input":  "quiet hotel, no old links, no generic search pages",
+                      "expected":  [
+                                       "empty link is risky",
+                                       "generic search URL is risky",
+                                       "source_url required for reliable recommendation"
+                                   ]
+                  },
+                  {
+                      "id":  "v41-1-no-duplicate-quality-gate",
+                      "input":  "production workflow static check",
+                      "expected":  [
+                                       "exactly one VAi Quality Gate v31",
+                                       "no VAi Quality Gate v31 2",
+                                       "production publish only after final v29 OK"
+                                   ]
+                  }
+              ]
+}
