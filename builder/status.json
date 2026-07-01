@@ -1,20 +1,14 @@
 {
-  "builder": "v33",
-  "status": "PROMOTION_GATE_PASS",
-  "last_run_at": "2026-07-01T00:31:50.845Z",
-  "production_touched": false,
-  "source_candidate_path": "builder/candidates/Tury_v31_quality_gate_candidate_20260701_002813.json",
-  "promoted_path": "builder/promoted/Tury_v33_quality_gate_promoted_20260701_003027.json",
-  "report_path": "builder/reports/builder_v33_promotion_report_20260701_003027.md",
-  "n8n_import_pass": true,
-  "n8n_execution_pass": true,
-  "quality_gate_field_check_pass": true,
-  "quality_gate_sample": {
-    "score": 1,
-    "risk": "high",
-    "priceConfidence": "suspicious",
-    "status": "Отклонить",
-    "rejectReason": "нет source_url; цена некорректная"
-  },
-  "next_step": "v34 final approval gate / controlled promotion"
+  "builder": "v30",
+  "status": "READY_FOR_CANDIDATE_PATCH",
+  "last_run_at": "2026-07-01T00:33:07.503Z",
+  "safe_mode": true,
+  "current_step": "planning/spec/testcases published",
+  "next_step": "generate candidate workflow patch and run n8n import/execute QA",
+  "files_published": [
+    "builder/tasks/quality_gate_v30_20260701_003307.json",
+    "builder/specs/quality_gate_v30_spec.json",
+    "builder/autotests/quality_gate_v30_cases.json",
+    "builder/status.json"
+  ]
 }
