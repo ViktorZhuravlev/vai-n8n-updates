@@ -1,0 +1,33 @@
+{
+    "schema":  "vai-builder-v41-1-status",
+    "version":  "v41.1",
+    "status":  "TASK_AWARE_SPEC_READY",
+    "last_run_at":  "2026-07-01T03:48:10",
+    "task":  "improve tour agent: stricter real price, dates, nights and old links checks",
+    "task_path":  "builder/v41/tasks/task_v41_1_20260701_034336.json",
+    "spec_path":  "builder/v41/specs/spec_v41_1_20260701_034336.json",
+    "autotests_path":  "builder/v41/autotests/cases_v41_1_20260701_034336.json",
+    "report_path":  "builder/v41/reports/report_v41_1_20260701_034336.md",
+    "production_touched":  false,
+    "safe_check_status":  [
+                              "2026-07-01 03:46:24  SAFE CHECK START THROUGH V40.2",
+                              "2026-07-01 03:46:24  2026-07-01 03:46:24  TASK MIRROR WRITE PASS: builder check production after v41.1 spec publish",
+                              "2026-07-01 03:46:24  2026-07-01 03:46:24  V40 WEBHOOK PASS: TASK_QUEUED",
+                              "2026-07-01 03:46:24  2026-07-01 03:46:24  BRIDGE RUN START",
+                              "2026-07-01 03:46:25  2026-07-01 03:46:25  2026-07-01 03:46:25  === VAi v40.2 Safe Task Mirror Router start ===",
+                              "2026-07-01 03:46:25  2026-07-01 03:46:25  2026-07-01 03:46:25  RUN ORIGINAL V47 BRIDGE START",
+                              "2026-07-01 03:46:29  2026-07-01 03:46:29  2026-07-01 03:46:29  TASK BRIDGE V47 FINISHED OK",
+                              "2026-07-01 03:46:29  2026-07-01 03:46:29  2026-07-01 03:46:29  Log: D:\\VAI\\3321\\logs\\task_bridge_v47_run_latest.log",
+                              "2026-07-01 03:46:29  2026-07-01 03:46:29  2026-07-01 03:46:29  RUN ORIGINAL V47 BRIDGE EXIT CODE: 0",
+                              "2026-07-01 03:46:29  2026-07-01 03:46:29  2026-07-01 03:46:29  RUN_NOW DETECTED: True",
+                              "2026-07-01 03:46:29  2026-07-01 03:46:29  2026-07-01 03:46:29  TASK MIRROR OK: True",
+                              "2026-07-01 03:46:29  2026-07-01 03:46:29  2026-07-01 03:46:29  TASK TEXT: builder check production after v41.1 spec publish",
+                              "2026-07-01 03:46:29  2026-07-01 03:46:29  2026-07-01 03:46:29  ROUTE MODE: check",
+                              "2026-07-01 03:48:10  2026-07-01 03:48:10  2026-07-01 03:48:10  V40.2 ROUTER PASS: task checked safely",
+                              "2026-07-01 03:48:10  2026-07-01 03:48:10  2026-07-01 03:48:10  === VAi v40.2 Safe Task Mirror Router OK ===",
+                              "2026-07-01 03:48:10  2026-07-01 03:48:10  SEND BUILDER TASK PASS",
+                              "2026-07-01 03:48:10  SAFE CHECK PASS THROUGH V40.2",
+                              "PASS"
+                          ],
+    "next_required_stage":  "v42 consume v41 spec into candidate builder"
+}
