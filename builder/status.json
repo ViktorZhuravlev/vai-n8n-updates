@@ -1,12 +1,14 @@
 {
-  "builder": "v32",
-  "status": "CANDIDATE_QA_PASS",
-  "last_run_at": "2026-07-01T00:24:47.216Z",
-  "production_touched": false,
-  "candidate_path": "builder/candidates/Tury_v31_quality_gate_candidate_20260701_002313.json",
-  "qa_report_path": "builder/reports/builder_v32_qa_report_20260701_002317.md",
-  "n8n_import_pass": true,
-  "n8n_execution_pass": true,
-  "quality_gate_json_pass": true,
-  "next_step": "v33 Google Sheets output verification and promotion gate"
+  "builder": "v30",
+  "status": "READY_FOR_CANDIDATE_PATCH",
+  "last_run_at": "2026-07-01T00:28:08.291Z",
+  "safe_mode": true,
+  "current_step": "planning/spec/testcases published",
+  "next_step": "generate candidate workflow patch and run n8n import/execute QA",
+  "files_published": [
+    "builder/tasks/quality_gate_v30_20260701_002808.json",
+    "builder/specs/quality_gate_v30_spec.json",
+    "builder/autotests/quality_gate_v30_cases.json",
+    "builder/status.json"
+  ]
 }
