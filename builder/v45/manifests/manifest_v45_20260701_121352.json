@@ -1,0 +1,42 @@
+{
+    "schema":  "vai-builder-v45-release-manifest",
+    "version":  "v45.0",
+    "status":  "RELEASE_GATE_PASS",
+    "created_at":  "2026-07-01T12:13:52",
+    "task":  "improve tour agent: stricter real price, dates, nights and old links checks",
+    "production_touched":  false,
+    "source_v44_promoted_candidate_path":  "builder/v44/promoted/Tury_v44_promoted_candidate_20260701_120115.json",
+    "source_v44_manifest_path":  "builder/v44/manifests/manifest_v44_20260701_120115.json",
+    "release_candidate_path":  "builder/v45/releases/Tury_v45_release_candidate_20260701_121352.json",
+    "validation":  {
+                       "v44_status":  "PROMOTION_GATE_PASS",
+                       "quality_gate":  "VAi Quality Gate v31",
+                       "policy_node":  "VAi Task-Aware Policy v42",
+                       "nodes":  9,
+                       "connections":  8,
+                       "release_json_valid":  true,
+                       "policy_marker_present":  true,
+                       "gate_connected_to_policy":  true,
+                       "safe_check":  [
+                                          "2026-07-01 12:11:25  SAFE CHECK START THROUGH V40.2",
+                                          "2026-07-01 12:11:26  2026-07-01 12:11:26  TASK MIRROR WRITE PASS: builder check production after v45 release gate",
+                                          "2026-07-01 12:11:26  2026-07-01 12:11:26  V40 WEBHOOK PASS: TASK_QUEUED",
+                                          "2026-07-01 12:11:26  2026-07-01 12:11:26  BRIDGE RUN START",
+                                          "2026-07-01 12:11:26  2026-07-01 12:11:26  2026-07-01 12:11:26  === VAi v40.2 Safe Task Mirror Router start ===",
+                                          "2026-07-01 12:11:26  2026-07-01 12:11:26  2026-07-01 12:11:26  RUN ORIGINAL V47 BRIDGE START",
+                                          "2026-07-01 12:11:31  2026-07-01 12:11:31  2026-07-01 12:11:31  TASK BRIDGE V47 FINISHED OK",
+                                          "2026-07-01 12:11:31  2026-07-01 12:11:31  2026-07-01 12:11:31  Log: D:\\VAI\\3321\\logs\\task_bridge_v47_run_latest.log",
+                                          "2026-07-01 12:11:31  2026-07-01 12:11:31  2026-07-01 12:11:31  RUN ORIGINAL V47 BRIDGE EXIT CODE: 0",
+                                          "2026-07-01 12:11:31  2026-07-01 12:11:31  2026-07-01 12:11:31  RUN_NOW DETECTED: True",
+                                          "2026-07-01 12:11:31  2026-07-01 12:11:31  2026-07-01 12:11:31  TASK MIRROR OK: True",
+                                          "2026-07-01 12:11:31  2026-07-01 12:11:31  2026-07-01 12:11:31  TASK TEXT: builder check production after v45 release gate",
+                                          "2026-07-01 12:11:31  2026-07-01 12:11:31  2026-07-01 12:11:31  ROUTE MODE: check",
+                                          "2026-07-01 12:13:52  2026-07-01 12:13:52  2026-07-01 12:13:52  V40.2 ROUTER PASS: task checked safely",
+                                          "2026-07-01 12:13:52  2026-07-01 12:13:52  2026-07-01 12:13:52  === VAi v40.2 Safe Task Mirror Router OK ===",
+                                          "2026-07-01 12:13:52  2026-07-01 12:13:52  SEND BUILDER TASK PASS",
+                                          "2026-07-01 12:13:52  SAFE CHECK PASS THROUGH V40.2",
+                                          "PASS"
+                                      ]
+                   },
+    "next_required_stage":  "v46 safe production adapter"
+}
