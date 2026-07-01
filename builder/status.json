@@ -1,14 +1,11 @@
 {
-  "builder": "v30",
-  "status": "READY_FOR_CANDIDATE_PATCH",
-  "last_run_at": "2026-07-01T00:08:21.292Z",
-  "safe_mode": true,
-  "current_step": "planning/spec/testcases published",
-  "next_step": "generate candidate workflow patch and run n8n import/execute QA",
-  "files_published": [
-    "builder/tasks/quality_gate_v30_20260701_000821.json",
-    "builder/specs/quality_gate_v30_spec.json",
-    "builder/autotests/quality_gate_v30_cases.json",
-    "builder/status.json"
-  ]
+  "builder": "v31",
+  "status": "CANDIDATE_PATCH_READY",
+  "last_run_at": "2026-07-01T00:08:26.904Z",
+  "production_touched": false,
+  "candidate_path": "builder/candidates/Tury_v31_quality_gate_candidate_20260701_000826.json",
+  "report_path": "builder/reports/builder_v31_report_20260701_000826.md",
+  "quality_gate_node": "VAi Quality Gate v31 3",
+  "target_sheets_node": "01 Найти туры v22.0 FINAL autonomous polish",
+  "rewired_connections": 1
 }
