@@ -1,0 +1,13 @@
+{
+    "schema":  "vai-builder-v49-2-status",
+    "version":  "v49.2b",
+    "status":  "BASELINE_FIX_PUBLISH_PASS",
+    "last_run_at":  "2026-07-01T13:59:51",
+    "production_touched":  false,
+    "production_path":  "workflows/Tury_v29_0_REAL_QA_node_autonomy_loop.json",
+    "production_verify":  "PASS",
+    "survived_v40_2":  "PASS_CONFIRMED_BY_V49_2_LOG",
+    "snapshot_path":  "builder/v49_2/snapshots/production_v49_2b_verified_20260701_135948.json",
+    "report_path":  "builder/v49_2/reports/report_v49_2b_20260701_135948.md",
+    "next_required_stage":  "rerun v48 real QA"
+}
