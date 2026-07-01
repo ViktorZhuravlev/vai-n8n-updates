@@ -254,20 +254,6 @@
         -480,
         0
       ]
-    },
-    {
-      "parameters": {
-        "mode": "runOnceForAllItems",
-        "jsCode": "function text(v) {\n  return String(v ?? '').trim();\n}\n\nfunction lower(v) {\n  return text(v).toLowerCase();\n}\n\nfunction pick(obj, keys) {\n  for (const k of keys) {\n    if (obj[k] !== undefined && obj[k] !== null && text(obj[k]) !== '') return obj[k];\n  }\n  return '';\n}\n\nfunction num(v) {\n  const s = text(v).replace(/\\s/g, '').replace(/[^0-9,.]/g, '').replace(',', '.');\n  const n = Number(s);\n  return Number.isFinite(n) ? n : null;\n}\n\nfunction hasAny(s, words) {\n  const x = lower(s);\n  return words.some(w => x.includes(w));\n}\n\nfunction qualityGate(j) {\n  const hotel = text(pick(j, ['Название', 'Отель', 'hotel', 'hotel_name', 'name', 'title']));\n  const url = text(pick(j, ['Ссылка', 'source_url', 'url', 'link', 'URL']));\n  const request = text(pick(j, ['Запрос', 'originalRequest', 'request', 'Исходный запрос']));\n  const priceRaw = pick(j, ['Цена', 'price', 'Стоимость', 'amount']);\n  const price = num(priceRaw);\n\n  let score = 10;\n  const risks = [];\n\n  let priceConfidence = 'needs_check';\n\n  if (!url) {\n    score -= 3;\n    risks.push('нет source_url');\n    priceConfidence = 'unknown';\n  }\n\n  if (price === null) {\n    score -= 4;\n    risks.push('цена не распознана');\n    priceConfidence = 'unknown';\n  }\n\n  if (price !== null && price <= 0) {\n    score -= 6;\n    risks.push('цена некорректная');\n    priceConfidence = 'suspicious';\n  }\n\n  if (price !== null && price > 0 && price < 40000) {\n    score -= 5;\n    risks.push('цена выглядит подозрительно низкой');\n    priceConfidence = 'suspicious';\n  }\n\n  if (url && hasAny(url, ['search?', 'google.', 'yandex.', 'text=', 'query='])) {\n    score -= 2;\n    risks.push('ссылка похожа на поиск, а не прямой источник');\n    if (priceConfidence !== 'suspicious') priceConfidence = 'needs_check';\n  }\n\n  const allText = [hotel, request, JSON.stringify(j)].join(' ');\n\n  if (hasAny(allText, ['aqua', 'аква', 'kids', 'дет', 'family', 'семейн', 'animation', 'анимац'])) {\n    score -= 2;\n    risks.push('есть признаки семейного/детского отеля');\n  }\n\n  if (hasAny(allText, ['large resort', 'huge', 'большой комплекс', 'много корпусов', 'муравейник'])) {\n    score -= 3;\n    risks.push('есть риск муравейника');\n  }\n\n  if (hasAny(allText, ['old reviews', 'низкий рейтинг', 'плохие отзывы', 'rating 6', 'rating: 6'])) {\n    score -= 2;\n    risks.push('есть риск слабых отзывов');\n  }\n\n  if (hasAny(allText, ['no meal', 'без питания', 'питание не указано', 'unclear meal'])) {\n    score -= 1;\n    risks.push('питание не подтверждено');\n  }\n\n  score = Math.max(0, Math.min(10, score));\n\n  let riskLevel = 'low';\n  if (score < 8 || risks.length >= 2) riskLevel = 'medium';\n  if (score < 6 || priceConfidence === 'suspicious' || risks.length >= 4) riskLevel = 'high';\n\n  let decision = 'recommend';\n  let rejectReason = '';\n\n  if (riskLevel === 'high' || score < 6) {\n    decision = 'reject';\n    rejectReason = risks.join('; ') || 'качество варианта не подтверждено';\n  } else if (score < 8 || priceConfidence !== 'confirmed') {\n    decision = 'backup';\n  }\n\n  const status = decision === 'recommend'\n    ? 'Рекомендовать'\n    : decision === 'backup'\n      ? 'Запасной вариант / требуется проверка'\n      : 'Отклонить';\n\n  return {\n    ...j,\n\n    'Статус проверки': status,\n    'Score': score,\n    'Risk Level': riskLevel,\n    'Reject Reason': rejectReason,\n    'Price Confidence': priceConfidence,\n    'Source URL': url,\n    'Checked At': new Date().toISOString(),\n\n    status,\n    score,\n    risk_level: riskLevel,\n    reject_reason: rejectReason,\n    price_confidence: priceConfidence,\n    source_url: url,\n    checked_at: new Date().toISOString()\n  };\n}\n\nreturn items.map(item => {\n  const json = qualityGate(item.json || {});\n  return {\n    json,\n    pairedItem: item.pairedItem\n  };\n});"
-      },
-      "id": "vaiQualityGateV31",
-      "name": "VAi Quality Gate v31 2",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        -480,
-        0
-      ]
     }
   ],
   "pinData": {},
@@ -339,17 +325,6 @@
       ]
     },
     "VAi Quality Gate v31": {
-      "main": [
-        [
-          {
-            "node": "VAi Quality Gate v31 2",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "VAi Quality Gate v31 2": {
       "main": [
         [
           {
