@@ -1,22 +1,14 @@
 {
-  "builder": "v36-safe-production",
-  "status": "SAFE_PRODUCTION_REPLACEMENT_PASS",
-  "last_run_at": "2026-06-30T23:37:09.814Z",
-  "production_touched": true,
-  "production_path": "workflows/Tury_v29_0_REAL_QA_node_autonomy_loop.json",
-  "production_id": "vaiTuryV29RealQa",
-  "source_release_path": "builder/releases/Tury_v34_release_candidate_20260630_233402.json",
-  "backup_path": "builder/backups/production_before_v36_safe_20260630_233536.json",
-  "candidate_path": "builder/safe_production/Tury_v36_safe_production_candidate_20260630_233536.json",
-  "report_path": "builder/reports/v36_safe_production_report_20260630_233536.md",
-  "manifest_path": "builder/releases/v36_safe_production_manifest_20260630_233536.json",
-  "quality_gate_sample": {
-    "score": 1,
-    "risk": "high",
-    "priceConfidence": "suspicious",
-    "checkedAt": "2026-06-30T23:35:47.638Z",
-    "status": "Отклонить",
-    "rejectReason": "нет source_url; цена некорректная"
-  },
-  "next_step": "normal v29 autopilot verification"
+  "builder": "v30",
+  "status": "READY_FOR_CANDIDATE_PATCH",
+  "last_run_at": "2026-07-01T00:08:21.292Z",
+  "safe_mode": true,
+  "current_step": "planning/spec/testcases published",
+  "next_step": "generate candidate workflow patch and run n8n import/execute QA",
+  "files_published": [
+    "builder/tasks/quality_gate_v30_20260701_000821.json",
+    "builder/specs/quality_gate_v30_spec.json",
+    "builder/autotests/quality_gate_v30_cases.json",
+    "builder/status.json"
+  ]
 }
