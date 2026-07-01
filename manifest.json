@@ -5,8 +5,8 @@
   "workflow_name": "Tury v29.0 REAL QA node autonomy loop",
   "workflow_file": "workflows/Tury_v29_0_REAL_QA_node_autonomy_loop.json",
   "workflow_url": "https://raw.githubusercontent.com/ViktorZhuravlev/vai-n8n-updates/main/workflows/Tury_v29_0_REAL_QA_node_autonomy_loop.json",
-  "workflow_sha256": "a0ebdc8413657b4eff490ef21546e5b1ed07de6c5324be6bb15108a9465690a3",
+  "workflow_sha256": "63cd5200a38f211d5872ffcbdbcbcfa82a015cc145981f5846d44badba244f5c",
   "min_updater": "v10.0",
   "notes": "v29.0 published by real QA Node autonomy loop. Adds server-safe n8n execution handling for existing task broker port conflicts.",
-  "published_at": "2026-07-01T10:52:07.190Z"
+  "published_at": "2026-07-01T10:54:41.414Z"
 }
