@@ -254,19 +254,6 @@
         -480,
         0
       ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// v42_spec_version: v41.1\n// v42_task: improve tour agent: stricter real price, dates, nights and old links checks\n\n// VAi Task-Aware Policy v42.2\n// Generated from v41 task-aware spec.\n// This node post-processes QA fields and makes risky options harder to recommend.\n\nconst checkedAt = new Date().toISOString();\n\nfunction valueOfAny(obj, keys) {\n  for (const key of keys) {\n    if (obj[key] !== undefined && obj[key] !== null && String(obj[key]).trim() !== '') {\n      return obj[key];\n    }\n  }\n  return '';\n}\n\nfunction textOf(obj) {\n  try {\n    return JSON.stringify(obj).toLowerCase();\n  } catch (e) {\n    return '';\n  }\n}\n\nfunction parsePrice(value) {\n  const raw = String(value ?? '').replace(/\\s+/g, '');\n  const digits = raw.replace(/[^\\d]/g, '');\n  if (!digits) return 0;\n  const n = Number(digits);\n  if (!Number.isFinite(n)) return 0;\n  return n;\n}\n\nfunction hasUsefulSourceUrl(url) {\n  const u = String(url || '').trim().toLowerCase();\n  if (!u) return false;\n  if (!/^https?:\\/\\//.test(u)) return false;\n  if (/google\\.|yandex\\.|bing\\.|search|\\/search|query=|text=|utm_only/i.test(u)) return false;\n  return true;\n}\n\nfunction addReason(list, reason) {\n  if (!list.includes(reason)) list.push(reason);\n}\n\nfunction asNumber(value, fallback) {\n  const n = Number(value);\n  return Number.isFinite(n) ? n : fallback;\n}\n\nfor (const item of items) {\n  const j = item.json || {};\n  const allText = textOf(j);\n\n  const sourceUrl = String(valueOfAny(j, ['source_url', 'Source URL', 'url', 'link', 'Link']) || '').trim();\n  const priceRaw = valueOfAny(j, ['price', 'Price', 'tour_price']);\n  const price = parsePrice(priceRaw);\n\n  let score = asNumber(valueOfAny(j, ['score', 'Score']), 0);\n  let risk = String(valueOfAny(j, ['risk_level', 'Risk Level']) || '').toLowerCase();\n  let confidence = String(valueOfAny(j, ['price_confidence', 'Price Confidence']) || '').toLowerCase();\n\n  const reasons = [];\n\n  if (!hasUsefulSourceUrl(sourceUrl)) {\n    addReason(reasons, 'v42: missing_or_weak_source_url');\n    confidence = 'suspicious';\n    risk = 'high';\n    score = Math.min(score || 1, 2);\n  }\n\n  if (!price || price <= 0) {\n    addReason(reasons, 'v42: missing_or_invalid_price');\n    confidence = 'suspicious';\n    risk = 'high';\n    score = Math.min(score || 1, 2);\n  }\n\n  if (price > 0 && price < 45000) {\n    addReason(reasons, 'v42: unrealistic_low_price');\n    confidence = 'suspicious';\n    risk = 'high';\n    score = Math.min(score || 1, 3);\n  }\n\n  if (/old link|stale|archive|cached|expired|not found|404|redirect/i.test(allText)) {\n    addReason(reasons, 'v42: stale_or_expired_link_signal');\n    confidence = 'suspicious';\n    risk = risk === 'high' ? 'high' : 'medium';\n    score = Math.min(score || 1, 5);\n  }\n\n  if (/ant.?farm|too large|overloaded|crowded|noisy|huge resort|mass hotel|many families/i.test(allText)) {\n    addReason(reasons, 'v42: ant_farm_or_noisy_signal');\n    risk = risk === 'high' ? 'high' : 'medium';\n    score = Math.min(score || 1, 6);\n  }\n\n  const requestedNights = parsePrice(valueOfAny(j, ['requested_nights', 'Requested Nights']));\n  const actualNights = parsePrice(valueOfAny(j, ['nights', 'Nights']));\n\n  if (requestedNights > 0 && actualNights > 0 && requestedNights !== actualNights) {\n    addReason(reasons, 'v42: nights_mismatch');\n    risk = 'high';\n    score = Math.min(score || 1, 4);\n  }\n\n  if (!confidence || confidence === 'confirmed') {\n    if (!hasUsefulSourceUrl(sourceUrl) || !price || price <= 0) {\n      confidence = 'suspicious';\n    }\n  }\n\n  const existingReason = String(valueOfAny(j, ['reject_reason', 'Reject Reason']) || '').trim();\n  const mergedReason = [existingReason, ...reasons].filter(Boolean).join('; ');\n\n  j.v42_policy_applied = true;\n  j.v42_policy_checked_at = checkedAt;\n  j.v42_policy_reasons = reasons;\n  j.v42_task_aware = true;\n\n  j.score = score;\n  j.Score = score;\n\n  j.risk_level = risk || 'medium';\n  j['Risk Level'] = j.risk_level;\n\n  j.price_confidence = confidence || 'needs_check';\n  j['Price Confidence'] = j.price_confidence;\n\n  j.source_url = sourceUrl;\n  j['Source URL'] = sourceUrl;\n\n  j.reject_reason = mergedReason;\n  j['Reject Reason'] = mergedReason;\n\n  if (reasons.length > 0 && (risk === 'high' || score <= 3)) {\n    j.status = 'reject';\n    j['Status'] = 'reject';\n  }\n\n  j.checked_at = checkedAt;\n  j['Checked At'] = checkedAt;\n\n  item.json = j;\n}\n\nreturn items;\r\n"
-      },
-      "id": "vaiTaskAwarePolicyV42",
-      "name": "VAi Task-Aware Policy v42",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        -200,
-        0
-      ]
     }
   ],
   "pinData": {},
@@ -341,17 +328,6 @@
       "main": [
         [
           {
-            "node": "VAi Task-Aware Policy v42",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "VAi Task-Aware Policy v42": {
-      "main": [
-        [
-          {
             "node": "01 Найти туры v22.0 FINAL autonomous polish",
             "type": "main",
             "index": 0
@@ -369,14 +345,7 @@
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "49924c6e8fd3a51b06a66f4d61c08afb44a43b1c78e3449379ab03f9eeecc265",
-    "version": "v7.6-compact-travel-buyer-core-v2",
-    "vai_task_aware_policy_v42": {
-      "version": "v42.2",
-      "created_at": "2026-07-01T10:07:06",
-      "source_spec_version": "v41.1",
-      "source_task": "improve tour agent: stricter real price, dates, nights and old links checks",
-      "production_touched": false
-    }
+    "version": "v7.6-compact-travel-buyer-core-v2"
   },
   "tags": [],
   "id": "vaiTuryV29RealQa"
