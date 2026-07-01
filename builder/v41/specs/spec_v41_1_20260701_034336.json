@@ -1,0 +1,80 @@
+{
+    "schema":  "vai-builder-task-aware-spec-v41-1",
+    "version":  "v41.1",
+    "created_at":  "2026-07-01T03:43:36",
+    "source":  "SEND_BUILDER_TASK_V41",
+    "task":  "improve tour agent: stricter real price, dates, nights and old links checks",
+    "intent":  "improvement",
+    "production_touched":  false,
+    "direct_production_publish_allowed":  false,
+    "required_gates":  [
+                           "task-aware spec publish",
+                           "candidate build",
+                           "candidate QA",
+                           "promotion gate",
+                           "release gate",
+                           "safe production adapter",
+                           "final v29 PASS"
+                       ],
+    "requirements":  [
+                         "Keep production safe. Do not publish production workflow directly from v41.",
+                         "Do not create duplicate VAi Quality Gate v31 nodes.",
+                         "There must be exactly one VAi Quality Gate v31 in production workflow.",
+                         "Every future production publish must pass static JSON validation.",
+                         "Every future production publish must pass n8n import.",
+                         "Every future production publish must pass n8n execute.",
+                         "Every future production publish must pass Google Sheets output check.",
+                         "Every future production publish must pass final v29 check.",
+                         "Improve real price checks: empty price, unrealistic price, missing source_url or search-only URL must not be treated as confirmed.",
+                         "Improve price confidence: confirmed is allowed only when source_url and price evidence are present.",
+                         "Improve dates and nights checks: requested month, dates and number of nights must match the user request.",
+                         "Improve old link checks: empty, stale, generic search or suspicious source_url must lower score and confidence.",
+                         "Improve calm hotel logic: ant-farm, noisy family and overloaded resort signals must lower score.",
+                         "Rejected or risky variants must have reject_reason and must not be shown as reliable TOP recommendations.",
+                         "Task text must be preserved in builder/v41/status.json and builder/v41/specs."
+                     ],
+    "autotests":  [
+                      {
+                          "id":  "v41-1-price-confidence-strict",
+                          "input":  "Turkey July up to 175000 for two adults 4-5 stars not ant-farm",
+                          "expected":  [
+                                           "missing source_url is not confirmed",
+                                           "suspicious price is not reliable TOP",
+                                           "price_confidence is confirmed only with evidence"
+                                       ]
+                      },
+                      {
+                          "id":  "v41-1-dates-nights-lock",
+                          "input":  "Turkey August up to 350000 for two adults 7 nights",
+                          "expected":  [
+                                           "month must be August",
+                                           "nights must be 7",
+                                           "date mismatch creates risk"
+                                       ]
+                      },
+                      {
+                          "id":  "v41-1-old-links-reject",
+                          "input":  "quiet hotel, no old links, no generic search pages",
+                          "expected":  [
+                                           "empty link is risky",
+                                           "generic search URL is risky",
+                                           "source_url required for reliable recommendation"
+                                       ]
+                      },
+                      {
+                          "id":  "v41-1-no-duplicate-quality-gate",
+                          "input":  "production workflow static check",
+                          "expected":  [
+                                           "exactly one VAi Quality Gate v31",
+                                           "no VAi Quality Gate v31 2",
+                                           "production publish only after final v29 OK"
+                                       ]
+                      }
+                  ],
+    "safety_rules":  [
+                         "v41.1 does not modify workflows/Tury_v29_0_REAL_QA_node_autonomy_loop.json",
+                         "v41.1 does not call v37 ForceRebuild",
+                         "v41.1 does not duplicate VAi Quality Gate v31",
+                         "v42 must explicitly consume builder/v41/status.json"
+                     ]
+}
