@@ -8,5 +8,5 @@
   "workflow_sha256": "a0ebdc8413657b4eff490ef21546e5b1ed07de6c5324be6bb15108a9465690a3",
   "min_updater": "v10.0",
   "notes": "v29.0 published by real QA Node autonomy loop. Adds server-safe n8n execution handling for existing task broker port conflicts.",
-  "published_at": "2026-07-01T10:31:08.952Z"
+  "published_at": "2026-07-01T10:35:40.005Z"
 }
