@@ -1,0 +1,10 @@
+{
+  "id": "quality_gate_v30",
+  "status": "planned",
+  "created_at": "2026-07-01T00:33:07.503Z",
+  "title": "Autonomous Tour Agent Quality Gate v1",
+  "objective": "Build autonomous quality gate for tour agent: scoring, risks, price confidence, rejected variants, Sheets fields, and safe publish only after QA PASS.",
+  "target_workflow": "workflows/Tury_v29_0_REAL_QA_node_autonomy_loop.json",
+  "builder_mode": "safe_planning_first",
+  "next_stage": "candidate_workflow_patch"
+}
